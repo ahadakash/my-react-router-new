@@ -1,29 +1,48 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Root, { loader as rootLoader, action as rootAction } from "./routes/root";
+import Home from "./components/Home/Home";
+import Friends from "./components/Friends/Friends";
+import Header from "./components/Header/Header";
+import Contact from "./components/Conatct/Contact";
+import Details from "./components/Details/Details";
 import ErrorPage from "./error-page";
-import Contact from "./routes/contact";
+import First from "./components/First/First";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    loader: rootLoader,
-    action: rootAction,
+    element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "contacts/:contactId",
-        element: <Contact />,
+        path: "/",
+        element: <First></First>
       },
-    ],
+      {
+        path: "header",
+        element: <Header></Header>
+      },
+      {
+        path: "friends",
+        element: <Friends></Friends>
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>
+      },
+      {
+        path: "details",
+        element: <Details></Details>
+      }
+    ]
   },
 ]);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
