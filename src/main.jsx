@@ -9,9 +9,10 @@ import Home from "./components/Home/Home";
 import Friends from "./components/Friends/Friends";
 import Header from "./components/Header/Header";
 import Contact from "./components/Conatct/Contact";
-import Details from "./components/Details/Details";
+import FriendDetails from "./components/FriendDetails/FriendDetails";
 import ErrorPage from "./error-page";
 import First from "./components/First/First";
+import Details from "./components/Details/Details";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: "details",
         element: <Details></Details>
+      },
+      {
+        path: "friend/:details",
+        element: <FriendDetails></FriendDetails>,
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.details}`)
       }
     ]
   },
