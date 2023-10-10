@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Friend = (props) => {
 
     const { email, name, id, phone } = props.friend;
+    const navigate = useNavigate();
+
+    const handleNavigation = () => {
+        navigate(`/friend/${id}`);
+    }
 
     return (
         <div style={{
@@ -14,6 +19,7 @@ const Friend = (props) => {
             <h3>Their phone is : {phone}</h3>
             <h3>Their email is : {email}</h3>
             <Link to={`/friend/${id}`} key="id">And his details is here</Link>
+            <button onClick={handleNavigation}>See Details</button>
         </div >
     );
 };
