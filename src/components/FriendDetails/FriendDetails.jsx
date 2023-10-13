@@ -18,7 +18,7 @@ const FriendDetails = () => {
             <h3>Id: {id}</h3>
             <h3>Email: {email}</h3>
             <h3>Email: {email}</h3>
-            <h3>Phone: {phone}</h3>3
+            <h3>Phone: {phone}</h3>
             <button onClick={handleBack}>Go Back</button>
         </div>
     );

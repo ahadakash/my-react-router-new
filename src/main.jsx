@@ -13,6 +13,8 @@ import FriendDetails from "./components/FriendDetails/FriendDetails";
 import ErrorPage from "./error-page";
 import First from "./components/First/First";
 import Details from "./components/Details/Details";
+import Meal from "./components/Meal/Meal";
+import MealDetails from "./components/MealDetails/MealDetails";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
         path: "friend/:details",
         element: <FriendDetails></FriendDetails>,
         loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.details}`)
+      },
+      {
+        path: "meals",
+        element: <Meal></Meal>,
+        loader: () => fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a")
+      },
+      {
+        path: "meal/:details",
+        element: <MealDetails></MealDetails>,
       }
     ]
   },
